@@ -35,3 +35,13 @@ $ python3
     ↑エラーが出なければ正しくインストール完了しています
 
 ```
+## ライブラリ"requests"
+
+処理の過程で、PythonプログラムからBoxのRestAPIを叩くため、  
+Requestsライブラリをインストールしてください。  
+
+コマンド
+$ pip3 install requests
+
+
+
