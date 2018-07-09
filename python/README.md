@@ -35,6 +35,7 @@ $ python3
     ↑エラーが出なければ正しくインストール完了しています
 
 ```
+
 ## ライブラリ"requests"
 
 処理の過程で、PythonプログラムからBoxのRestAPIを叩くため、  
@@ -43,5 +44,58 @@ Requestsライブラリをインストールしてください。
 コマンド
 $ pip3 install requests
 
+
+---
+
+# 使い方
+
+1. リポジトリをClone
+
+```
+$ git clone git@github.com:BoxJapan-SE/oauth-samples.git
+```
+
+2. Pythonのディレクトリに移動
+
+```
+$ cd oauth-samples/python
+```
+
+3. app.pyを実行
+
+FlaskはデフォルトでTCP:5000番ポートでLISTEN状態に入り、ブラウザからのアクセスを待ちます。
+
+```
+$ python3 app.py
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+                    ↑↑↑
+              ローカルPCのTCP5000番でLISTEN
+```
+
+4. ブラウザでアクセス
+
+ブラウザを起動し「http://localhost:5000/authenticate」にアクセスします。
+
+自動で「https://account.box.com/api/oauth2/authorize」にリダイレクトされます。
+リダイレクト先でBoxのユーザ名、パスワードを入力します。
+
+
+5. アプリケーションを承認
+
+アプリケーションの権限画面を確認し、承認します。
+
+6. 画面にアクセストークン、リフレッシュトークンが表示される
+
+7. アプリケーションの終了
+
+Flaskを実行中のコンソールに戻り、Ctrl+Cでアプリケーションを終了させます。
+
+
+以上
 
 

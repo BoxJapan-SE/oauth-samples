@@ -10,20 +10,20 @@ client_secret = "アプリのSecretを指定"
 
 app = Flask(__name__)
 
-# /authenticateへGETリクエストが来たらapi.box.comのOAuth用URLにリダイレクト
+# /authenticateへGETリクエストが来たらaccount.box.comのOAuth用URLにリダイレクト
 @app.route("/authenticate")
 def box_oath():
     return redirect("https://account.box.com/api/oauth2/authorize?response_type=code&client_id=" +
                     client_id + "&redirect_uri=" + redirect_url + "&state=" + client_secret)
 
 
-# アプリケーションを承認後、リダイレクトされてくる通信を/oauthのパスで待ち受ける
+# ユーザがアプリケーションを承認後、リダイレクトされてくる通信を/oauthのパスで待ち受ける
 @app.route("/oauth")
 def get_code():
-    # URL中の「code=XXXXX」部分を抜き取る
+    # リダイレクトURLに含まれる「code=XXXXX」部分を抜き取る
     code = request.args.get('code')
 
-    # トークン取得用の別モジュール「box_token」のGetTokenクラスをインスタンス化
+    # トークン取得用のモジュール「box_token」のGetTokenクラスをインスタンス化
     gt = box_token.GetToken()
 
     # get_token関数にcodeを渡して実行し、トークンを取得する
