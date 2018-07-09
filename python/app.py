@@ -4,7 +4,7 @@
 from flask import Flask, redirect, request
 import box_token
 
-redirect_url = "http%3a%2f%2flocalhost%3a5000%2foauth"
+redirect_url = "http%3a%2f%2flocalhost%3a5000%2foauth"  # http://localhost:5000/oauth をURLエンコードしたもの
 client_id = "アプリのClient_IDを指定"
 client_secret = "アプリのSecretを指定"
 
@@ -13,7 +13,8 @@ app = Flask(__name__)
 # /authenticateへGETリクエストが来たらapi.box.comのOAuth用URLにリダイレクト
 @app.route("/authenticate")
 def box_oath():
-    return redirect("https://account.box.com/api/oauth2/authorize?response_type=code&client_id=" + client_id + "&redirect_uri=" + redirect_url + "&state=" + client_secret)
+    return redirect("https://account.box.com/api/oauth2/authorize?response_type=code&client_id=" +
+                    client_id + "&redirect_uri=" + redirect_url + "&state=" + client_secret)
 
 
 # アプリケーションを承認後、リダイレクトされてくる通信を/oauthのパスで待ち受ける
@@ -33,5 +34,4 @@ def get_code():
 
 if __name__ == "__main__":
     app.run()
-
 
