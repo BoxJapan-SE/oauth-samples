@@ -84,7 +84,20 @@ $ git clone git@github.com:BoxJapan-SE/oauth-samples.git
 $ cd oauth-samples/python
 ```
 
-### 3. app.pyを実行
+### 3. Client Code/Secretの指定
+
+app.pyをエディタで開き、cliend_idとclient_secretの変数定義部分で  
+それぞれ実際の値を指定して上書き保存します。  
+(それぞれ、開発者コンソール画面から確認できます。)  
+
+**app.py**  
+```
+client_id = "アプリのclient_id"
+client_secret = "アプリのclient_secret"
+```
+
+
+### 4. app.pyを実行
 
 FlaskはデフォルトでTCP:5000番ポートでLISTEN状態に入り、ブラウザからのアクセスを待ちます。  
 
@@ -100,7 +113,7 @@ $ python3 app.py
               ローカルPCのTCP5000番でLISTEN
 ```
 
-### 4. ブラウザでアクセス
+### 5. ブラウザでアクセス
 
 ブラウザを起動し「 http://localhost:5000/authenticate 」にアクセスします。  
 
@@ -111,21 +124,21 @@ $ python3 app.py
 Boxのユーザ名、パスワードを入力します。  
 
 
-### 5. アプリケーションを承認
+### 6. アプリケーションを承認
 
 アプリケーションの権限画面を確認し、承認します。  
 
 ![python_oauth_04](./img/python_oauth_04.png)  
 
 
-### 6.アクセストークン、リフレッシュトークンの確認
+### 7.アクセストークン、リフレッシュトークンの確認
 
 ブラウザの画面にAccess Token、Refresh Tokenが表示されれば成功です。  
 
 ![python_oauth_05](./img/python_oauth_05.png)  
 
 
-### 7. アプリケーションの終了
+### 8. アプリケーションの終了
 
 Flaskを実行中のコンソールに戻り、Ctrl+Cでアプリケーションを終了させます。  
 
