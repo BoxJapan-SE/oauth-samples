@@ -4,7 +4,7 @@ Box OAuth実装 with Python
 
 ## 実行環境
 
-Python3が稼働すれば、OSはWindows、Mac、Linuxいずれでも構いません。    
+Python3が稼働すれば、OSはWindows、Mac、Linuxのいずれでも構いません。  
 ブラウザでlocalhostにアクセスして対話的な処理を行うため、Linuxの場合はGUI環境でブラウザが利用可能であることが前提となります。  
 
 
@@ -48,8 +48,10 @@ $ python3
 処理の過程で、PythonプログラムからBoxのRestAPIを叩くため、  
 Requestsライブラリをインストールしてください。  
 
-コマンド
+コマンド  
+```
 $ pip3 install requests
+```
 
 
 ---
